@@ -36,7 +36,7 @@ class App extends React.Component {
               ...snapShot.data()
             }
           }, () => { //'second' param of setState('first', 'second') is to handle data after 'first' complete
-            console.log(this.state);
+
           })
         });
         
