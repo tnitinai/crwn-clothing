@@ -30,10 +30,13 @@ const Header = ({ currentUser, hidden }) => (
           SIGN IN
         </Link>
       )}
-      <CartIcon />
+      {
+        currentUser ? <CartIcon /> : null
+      }
+        
     </div>
     {
-      hidden ? null :<CartDropdown />
+      hidden ? null : <CartDropdown />
     }
     
   </div>
@@ -44,4 +47,7 @@ const mapStateToProps = ({user: { currentUser }, cart: { hidden }}) => ({
   hidden
 })
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(Header); //connect() ทำให้ state ที่อยู่ในไฟล์นี้ เป็น props ที่สามารถเรียกใข้ได้ทั้ง App
+//connect(mapStateToProps, mapDispatchToProps)
+  //mapStateToProps: เอาค่าใน state ไปเก็บใน props ของ redux
+  //mapDispatchToProps: เมื่อมีการเปลี่ยนแปลง state เป็นการส่งให้ redux นำการเปลี่ยนแปลงไปอัพเดท props
